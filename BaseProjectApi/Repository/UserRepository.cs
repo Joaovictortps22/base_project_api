@@ -85,5 +85,27 @@ namespace BaseProjectApi.Repository
 
             return true;
         }
+
+        public async Task<User> Login(Login userCredentials)
+        {
+            try
+            {
+                var user = await _dbContext.Users.FirstOrDefaultAsync(x => x.Email == userCredentials.Email &&
+                                                                    x.Password == userCredentials.Password);
+
+                if (user != null)
+                {
+                    return user;
+                }
+                else
+                {
+                    throw new Exception("Login ou senha estão incorretos");
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

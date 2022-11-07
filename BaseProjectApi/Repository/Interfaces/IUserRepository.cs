@@ -13,5 +13,6 @@ namespace BaseProjectApi.Repository.Interfaces
         Task<User> Add(User user);
         Task<User> Update(User user, int id);
         Task<bool> Delete(int id);
+        Task<User> Login(Login userCredentials);
     }
 }

@@ -1,4 +1,5 @@
 using BaseProjectApi.Data;
+using BaseProjectApi.Manager;
 using BaseProjectApi.Repository;
 using BaseProjectApi.Repository.Interfaces;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -54,6 +55,7 @@ namespace BaseProjectApi
             services.AddMemoryCache();
 
             services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<LoginManager>();
 
             services.AddSwaggerGen(c =>
             {
